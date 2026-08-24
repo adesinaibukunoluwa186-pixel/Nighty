@@ -22,7 +22,7 @@ class ReactView(generics.ListCreateAPIView):
     serializer_class = ReactSerializer
 
     def get_queryset(self):
-        queryset = React.objects.all()
+        queryset = React.objects.all().order_by("-created_at")
 
         category = self.request.GET.get("category")
 
